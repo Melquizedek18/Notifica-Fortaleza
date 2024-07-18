@@ -1,0 +1,455 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    height: 100vh;
+}
+
+.left-half {
+    width: 50%;
+    border-radius: 12px;
+    background-color: #F4BF34; /* Amarelo */
+    border-right: 2px solid #ffffff; /* Borda direita branca */
+    position: relative;
+}
+
+.right-half {
+    width: 50%;
+    background-color: #ffffff; /* Branco */
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centraliza horizontalmente */
+    justify-content: flex-start; /* Centraliza verticalmente */
+}
+
+.navbar {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    background-color: #F4BF34;
+    text-align: center;
+    padding: 10px 0;
+    font-family: 'Inter', sans-serif;
+}
+
+.nav-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-list li {
+    display: inline;
+    margin: 0 15px;
+    position: relative;
+}
+
+.nav-list a {
+    text-decoration: none;
+    color: #000;
+    font-size: 16px;
+    transition: color 0.3s;
+}
+
+.nav-list a::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: #184175;
+    transition: width 0.3s;
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+}
+
+.nav-list a:hover {
+    color: #184175;
+}
+
+.nav-list a:hover::after {
+    width: 100%;
+}
+
+.bottom-center-image {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 750px;
+    height: 512px;
+    object-fit: cover;
+}
+
+.overlay-image {
+    position: absolute;
+    top: 100px; /* Ajuste a posição superior conforme necessário */
+    left: 20px; /* Ajuste a posição esquerda conforme necessário */
+    width: 300px; /* Largura da imagem */
+    height: 200px; /* Altura da imagem */
+    object-fit: cover;
+    z-index: 1; /* Garantir que fique acima da imagem anterior */
+}
+
+.logo {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Efeito de sombra fraco */
+    object-fit: cover;
+}
+
+.slogan {
+    margin-top: 100px; /* Ajuste a posição vertical conforme necessário */
+    text-align: center;
+}
+
+.notifica {
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+    font-size: 72px;
+    color: #184175;
+    margin: 0;
+}
+
+.fortaleza {
+    font-family: 'Poppins', sans-serif;
+    font-weight: normal;
+    font-size: 48px;
+    color: #F4BF34;
+    margin: -10px 0 0 0; /* Ajusta a proximidade entre "NOTIFICA" e "Fortaleza" */
+}
+
+.sub-slogan {
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    color: #006D77;
+    margin-top: 10px;
+}
+
+.info-block {
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    color: #000000;
+    margin-top: 10px;
+
+}
+
+.buttons {
+    margin-top: 30px; /* Ajuste a posição vertical conforme necessário */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.button {
+    width: 387px;
+    height: 79px;
+    border: none;
+    border-radius: 10px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 900;
+    font-size: 20px;
+    color: #ffffff;
+    margin-bottom: 20px; /* Espaço entre os botões */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Efeito de sombra */
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.denunciar {
+    background-color: #F4BF34;
+}
+
+.analisar {
+    background-color: #184175;
+}
+
+.button:hover {
+    transform: scale(1.05);
+}
+
+.denunciar:hover {
+    background-color: #2A8945;
+}
+
+.analisar:hover {
+    background-color: #2A8945;
+}
+
+.info {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    margin-top: 40px;
+}
+
+.info-block {
+    text-align: center;
+}
+
+.info-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    color: #000000;
+}
+
+.info-percentage {
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+    font-size: 32px;
+    color: #5463FF;
+}
+#transition-overlay-analisar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, #ff0000, #00ff00, #0000ff, #ffff00, #00ffff, #ff00ff);
+    background-size: 600% 600%;
+    z-index: 9999;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    pointer-events: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+#transition-overlay-analisar.show {
+    opacity: 1;
+}
+
+#transition-overlay-denunciar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, #0059ff, #00ff00, #0000ff, #ffff00, #48ff00, #ff0000);
+    background-size: 600% 600%;
+    z-index: 9999;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    pointer-events: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+#transition-overlay-denunciar.show {
+    opacity: 1;
+}
+
+.dots {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    animation: dotsAnimation 1s ease-in-out infinite;
+}
+
+.dots::before, .dots::after {
+    content: '';
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    background-color: red;
+    border-radius: 50%;
+    animation: dotMovement 1s infinite;
+}
+
+.dots::before {
+    animation-delay: 0.2s;
+}
+
+.dots::after {
+    animation-delay: 0.4s;
+}
+
+@keyframes dotsAnimation {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.5);
+    }
+}
+
+@keyframes dotMovement {
+    0%, 100% {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    25% {
+        top: 30%;
+        left: 70%;
+    }
+    50% {
+        top: 50%;
+        left: 90%;
+    }
+    75% {
+        top: 70%;
+        left: 30%;
+    }
+}
+
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+    body {
+        flex-direction: column;
+    }
+
+    .left-half, .right-half {
+        width: 100%;
+        height: auto;
+    }
+
+    .navbar {
+        flex-direction: column;
+        padding: 10px 0;
+    }
+
+    .nav-list {
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+    }
+
+    .nav-list li {
+        margin: 10px 0;
+        width: 100%;
+        text-align: center;
+    }
+
+    .bottom-center-image, .overlay-image {
+        display: none;
+    }
+
+    .logo {
+        width: 40px;
+        height: 40px;
+        position: absolute;
+        top: 10px;
+        right: 10px;
+    }
+
+    .slogan {
+        text-align: center;
+        margin: 20px 0;
+    }
+
+    .notifica {
+        font-size: 32px;
+    }
+
+    .fortaleza {
+        font-size: 24px;
+    }
+
+    .sub-slogan {
+        font-size: 14px;
+        padding: 0 20px;
+    }
+
+    .buttons {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    .button {
+        width: 80%;
+        max-width: 300px;
+        margin: 10px 0;
+        font-size: 18px;
+    }
+
+    .info {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    .info-block {
+        margin: 10px 0;
+        width: 80%;
+    }
+
+    .info-title {
+        font-size: 18px;
+    }
+
+    .info-percentage {
+        font-size: 24px;
+    }
+
+    .info-description {
+        font-size: 14px;
+    }
+
+    .info-container {
+        flex-direction: column;
+        align-items: center;
+        padding: 10px;
+        width: 100%;
+    }
+
+    .info-box {
+        width: 90%;
+        height: auto;
+        margin: 10px 0;
+        padding: 20px;
+        text-align: center;
+    }
+
+    .weather-container {
+        width: 90%;
+        height: auto;
+        flex-direction: column;
+        padding: 20px;
+        align-items: center;
+    }
+
+    .weather-box-wrapper {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .weather-box {
+        width: 30%;
+        margin: 10px 1%;
+    }
+
+    .weather-box img {
+        margin-bottom: 5px;
+    }
+
+    .arrow {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .weather-box {
+        width: 48%;
+    }
+}

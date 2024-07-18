@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Denunciar</title>
+    <link rel="stylesheet" href="denunciar.css">
+    <link href="https://fonts.googleapis.com/css2?family=Clear+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="left-half">
+        <nav class="navbar">
+            <ul class="nav-list">
+                <li><a href="https://www.home.com" target="_blank">Home</a></li>
+                <li><a href="https://www.servicos.com" target="_blank">Serviços</a></li>
+                <li><a href="https://www.casos.com" target="_blank">Casos</a></li>
+                <li><a href="https://www.denunciar.com" target="_blank">Denunciar</a></li>
+            </ul>
+        </nav>
+        <div class="text-container">
+            <h1 class="main-text">Prevenir a dengue é um ato de cuidado com todos.</h1>
+            <p class="sub-text">Com um clique, você pode fazer a diferença, e mudar tudo.</p>
+        </div>
+    </div>
+    <div class="right-half">
+        <img src="./img/images (3).jpg" alt="Logo" class="logo">
+        <div class="form-container">
+            <h1>Faça sua Denúncia</h1>
+            <form>
+                <label for="rua">Rua:</label>
+                <input type="text" id="rua" name="rua" placeholder="Digite a rua...">
+                <label for="bairro">Bairro:</label>
+                <select id="bairro" name="bairro">
+                    <option value="" disabled selected>Selecione o bairro</option>
+                    <option>Aldeota</option>
+                    <option>Barra do Ceará</option>
+                    <option>Benfica</option>
+                    <option>Cidade dos Funcionários</option>
+                    <option>Conjunto Ceará</option>
+                    <option>Fátima</option>
+                    <option>Meireles</option>
+                    <option>Messejana</option>
+                    <option>Montese</option>
+                    <option>Mucuripe</option>
+                    <option>Parangaba</option>
+                    <option>Praia de Iracema</option>
+                    <option>Varjota</option>
+                </select>
+                <label for="numero">Número mais próximo:</label>
+                <input type="text" id="numero" name="numero" placeholder="Digite o número...">
+                <label for="descricao">Descreva:</label>
+                <textarea id="descricao" name="descricao" rows="4" placeholder="Descreva a situação..."></textarea>
+                <input type="file" id="imageUpload" style="display: none;" multiple>
+                <button type="button" class="upload-button"
+                    onclick="document.getElementById('imageUpload').click();">Selecionar Imagens</button>
+                <button type="submit" class="submit-button">Enviar Denúncia</button>
+            </form>
+        </div>
+    </div>
+    <script src="denunciar.js"></script>
+</body>
+
+</html>

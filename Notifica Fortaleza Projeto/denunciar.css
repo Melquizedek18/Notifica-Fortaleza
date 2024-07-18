@@ -1,0 +1,206 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    height: 100vh;
+}
+
+.left-half {
+    width: 50%;
+    background-image: url('./img/pneu2.jpg'); /* Caminho para a imagem de fundo */
+    background-size: cover; /* Garante que a imagem cubra toda a área */
+    background-position: center; /* Centraliza a imagem na divisão */
+    position: relative;
+    overflow: hidden; /* Evita que qualquer conteúdo ou pseudo-elemento vaze */
+}
+
+.left-half::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5); /* Camada preta semi-transparente para escurecer */
+}
+
+.right-half {
+    width: 50%;
+    background-color: #ffffff; /* Branco */
+    position: relative;
+    font-family: 'Clear Sans', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centraliza horizontalmente */
+    justify-content: center; /* Centraliza verticalmente */
+}
+
+.navbar {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    background-color: transparent;
+    text-align: center;
+    padding: 10px 0;
+    font-family: 'Inter', sans-serif;
+    z-index: 2;
+}
+
+.nav-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-list li {
+    display: inline;
+    margin: 0 15px;
+    position: relative;
+}
+
+.nav-list a {
+    text-decoration: none;
+    color: #fff; /* Cor do texto branco */
+    font-size: 16px;
+    transition: color 0.3s;
+}
+
+.nav-list a::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: #ffffff; /* Cor da linha de fundo */
+    transition: width 0.3s;
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+}
+
+.nav-list a:hover {
+    color: #F4BF34; /* Cor do texto ao passar o mouse */
+}
+
+.nav-list a:hover::after {
+    width: 100%;
+}
+
+.text-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #ffffff;
+    z-index: 1; /* Garante que o texto fique acima da camada de escurecimento */
+}
+
+.main-text {
+    font-family: 'Clear Sans', sans-serif;
+    font-size: 44px;
+    font-weight: bold;
+    margin-bottom: 90px;
+}
+
+.sub-text {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15px;
+    width: 90%;
+    margin: 10px 0;
+    font-weight: normal;
+    margin-bottom: -90px;
+}
+
+.form-container {
+    width: 100%;
+    font-family: 'Clear Sans', sans-serif;
+    max-width: 800px;
+    background-color: #184175; /* Fundo azul escuro */
+    padding: 54px;
+    border-radius: 0px;
+    box-shadow: 0 19px 1px rgba(0, 0, 0, 0.1);
+    color: #ffffff; 
+}
+
+.form-container h1 {
+    font-family: 'Clear Sans', sans-serif;
+    font-size: 50px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centralizar o formulário */
+}
+
+label {
+    margin-bottom: 5px;
+    font-size: 16px;
+    width: 100%; /* Para que o label ocupe 100% da largura do formulário */
+}
+
+input[type="text"],
+select,
+textarea {
+    margin-bottom: 15px;
+    padding: 15px; /* Aumentar o padding */
+    border: none;
+    border-radius: 10px; /* Tornar os cantos mais arredondados */
+    font-size: 16px; /* Aumentar o tamanho da fonte */
+    color: #000;
+    background-color: #ffffff; /* Cor cinza escuro */
+    width: 100%; /* Para que os inputs ocupem 100% da largura do formulário */
+}
+
+.upload-button {
+    background-color: #2A8945; /* Verde */
+    color: #ffffff;
+    border: none;
+    border-radius: 15px;
+    padding: 15px;
+    font-size: 14px;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    margin-bottom: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.upload-button img {
+    margin-left: 10px;
+}
+
+.submit-button {
+    background-color: #F4BF34; /* Amarelo */
+    color: #ffffff;
+    border: none;
+    border-radius: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    font-size: 16px;
+    cursor: pointer;
+    width: 50%;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px; /* Adiciona um espaço acima do botão */
+}
+
+.logo {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    box-shadow: 0 5px 9px rgba(78, 75, 75, 0.9); /* Efeito de sombra fraco */
+    object-fit: cover;
+}
